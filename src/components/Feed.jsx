@@ -22,7 +22,18 @@ const Feed = () => {
           Created by <strong>Daniel Doody</strong>. All rights Reserved
         </Typography>
       </Box>
-      Feed
+      <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          mb={2}
+          sx={{ color: "white" }}
+        >
+          Latest Videos
+        </Typography>
+
+        <Videos />
+      </Box>
     </Stack>
   );
 };
