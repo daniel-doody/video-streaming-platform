@@ -1,15 +1,17 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
+
+import { fetchFromAPI } from "../utils/fetchFromAPI";
 import { Videos, Sidebar } from "./";
-import { fetchAPI } from "../utils/API";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
-  const [videos, setVideos] = useState("New");
+  const [videos, setVideos] = useState(null);
 
   useEffect(() => {
-    fetchAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
+    setVideos(null);
+
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
       setVideos(data.items)
     );
   }, [selectedCategory]);
@@ -27,14 +29,16 @@ const Feed = () => {
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
         />
+
         <Typography
           className="copyright"
           variant="body2"
           sx={{ mt: 1.5, color: "#fff" }}
         >
-          Created by <strong>Daniel Doody</strong>. All rights Reserved
+          Made by <strong>Daniel Doody</strong>
         </Typography>
       </Box>
+
       <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
         <Typography
           variant="h4"
@@ -42,7 +46,7 @@ const Feed = () => {
           mb={2}
           sx={{ color: "white" }}
         >
-          {selectedCategory} <span style={{ color: "#F31503" }}>Videos</span>
+          {selectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
         </Typography>
 
         <Videos videos={videos} />

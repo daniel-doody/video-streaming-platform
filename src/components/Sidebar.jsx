@@ -3,7 +3,7 @@ import { Stack } from "@mui/material";
 
 import { categories } from "../utils/constants";
 
-const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
+const Categories = ({ selectedCategory, setSelectedCategory }) => (
   <Stack
     direction="row"
     sx={{
@@ -12,30 +12,32 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
       flexDirection: { md: "column" },
     }}
   >
-    {categories.map((item) => (
+    {categories.map((category) => (
       <button
         className="category-btn"
-        onClick={() => setSelectedCategory(item.name)}
+        onClick={() => setSelectedCategory(category.name)}
         style={{
-          background: item.name === selectedCategory && "#FC1503",
+          background: category.name === selectedCategory && "#FC1503",
           color: "white",
         }}
-        key={item.name}
+        key={category.name}
       >
         <span
           style={{
-            color: item.name === selectedCategory ? "white" : "red",
+            color: category.name === selectedCategory ? "white" : "red",
             marginRight: "15px",
           }}
         >
-          {item.icon}
+          {category.icon}
         </span>
-        <span style={{ opacity: item.name === selectedCategory ? "1" : "0.8" }}>
-          {item.name}
+        <span
+          style={{ opacity: category.name === selectedCategory ? "1" : "0.8" }}
+        >
+          {category.name}
         </span>
       </button>
     ))}
   </Stack>
 );
 
-export default Sidebar;
+export default Categories;
