@@ -12,9 +12,9 @@ import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import DeveloperModeIcon from "@mui/icons-material/DeveloperMode";
 
-export const logo = "<a href="https://iili.io/tvAOXe.png";
-//iili.io/tvuYMb.png     https://i.ibb.co/s9Qys2j/logo.png
-https: export const categories = [
+export const logo = "https://iili.io/tvAOXe.png";
+
+export const categories = [
   { name: "New", icon: <HomeIcon /> },
   { name: "JS Mastery", icon: <CodeIcon /> },
   { name: "Coding", icon: <CodeIcon /> },
